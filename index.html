@@ -9,7 +9,6 @@
 <body>
     <div class="container">
         <h1>Hacker News Feed</h1>
-        <div id="new-stories-alert"></div>
         <div class="buttons">
             <button id="stories-btn">Stories</button>
             <button id="newest-btn">Newest</button>
@@ -19,6 +18,15 @@
         <div id="posts"></div>
         <button id="load-more" class="load-more">Load More</button>
     </div>
+    
+    <!-- Popup structure -->
+    <div class="popUp" id="popUp">
+        <div class="popUpContainer" id="popUpContainer">
+            <p id="popUpMessage"></p>
+            <button id="closePopupBtn">Close</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
