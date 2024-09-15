@@ -175,15 +175,25 @@ async function pollDemo() {
     }
 }
 
+// Function to show popup
+function showPopup(message) {
+    const popUp = document.getElementById('popUp');
+    const popUpMessage = document.getElementById('popUpMessage');
+    popUpMessage.textContent = message;
+    popUp.style.display = 'flex';
+
+    document.getElementById('closePopupBtn').addEventListener('click', () => {
+        popUp.style.display = 'none';
+    });
+}
+
 // Check for new posts since the last check
 async function checkForNewPosts() {
     const newPostIds = await fetchPostIds(currentType);
     const newPosts = newPostIds.filter(id => !postIds.includes(id));
 
     if (newPosts.length > 0) {
-        const alertElement = document.getElementById('new-stories-alert');
-        alertElement.textContent = `${newPosts.length} new posts available. Refresh to see them.`;
-        alertElement.style.display = 'block';
+        showPopup(`${newPosts.length} new posts available. Refresh to see them.`);
         postIds = newPostIds;
     }
 
