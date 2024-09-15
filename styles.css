@@ -1,92 +1,211 @@
+/* Base styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
 }
 
+/* Header styles */
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px 0;
+    background-color: #2c3e50;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Navigation buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+    background-color: #34495e;
+    border-radius: 0 0 8px 8px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    background-color: #e74c3c; /* Default color for buttons */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.buttons button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Specific button colors */
+#stories-btn {
+    background-color: #e74c3c; /* Stories button color */
+}
+
+#stories-btn:hover {
+    background-color: #c0392b;
+}
+
+#newest-btn {
+    background-color: #e74c3c; /* Newest button color */
+}
+
+#newest-btn:hover {
+    background-color: #c0392b;
+}
+
+#jobs-btn {
+    background-color: #e74c3c; /* Jobs button color */
+}
+
+#jobs-btn:hover {
+    background-color: #c0392b;
+}
+
+#polls-btn {
+    background-color: #e74c3c; /* Polls button color */
+}
+
+#polls-btn:hover {
+    background-color: #c0392b;
+}
+
+/* New stories alert */
+#new-stories-alert {
+    background-color: #fdebd0;
+    border: 1px solid #f39c12;
+    color: #9c640c;
+    padding: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    display: none; /* This will be changed to 'block' when new stories are available */
+}
+
+/* Post styles */
 .post {
     background-color: #fff;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /* Added to ensure positioning of internal elements */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for scaling and shadow */
 }
 
 .post h2 {
     margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.4em;
 }
 
 .post-info {
     font-size: 0.9em;
-    color: #666;
+    color: #7f8c8d;
+    margin-bottom: 10px;
 }
 
 .post a {
-    color: #007bff;
+    color: #3498db; /* Changed to blue */
     text-decoration: none;
+    transition: color 0.2s ease-in-out;
 }
 
 .post a:hover {
+    color: #2980b9;
     text-decoration: underline;
 }
 
+/* Comments button */
 .comments-btn {
     display: block;
-    margin-top: 10px;
     padding: 8px 12px;
-    background-color: #007bff;
+    background-color: #e74c3c; /* Same color as the stories button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 10px;
+}
+
+.comments-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Load more button */
+.load-more {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    font-size: 0.9em;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 20px;
 }
 
-.comments-btn:hover {
-    background-color: #0056b3;
+.load-more:hover {
+    background-color: #d35400;
 }
 
+/* Comments styles */
 .comments {
-    margin-top: 10px;
-    padding-top: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
 }
 
 .comment {
     background-color: #f9f9f9;
-    border-left: 3px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
+    border-left: 4px solid #27ae60;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 0 5px 5px 0;
 }
 
-.load-more {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Subtle pop-up effect on post hover */
+.post:hover {
+    transform: scale(1.02); /* Slightly scale up */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow */
 }
 
-.load-more:hover {
-    background-color: #0056b3;
-}
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
 
-#new-stories-alert {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    color: #155724;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    display: none;
+    .buttons {
+        flex-wrap: wrap;
+    }
+
+    .buttons button {
+        flex: 1 1 40%;
+    }
+
+    .post {
+        padding: 15px;
+    }
 }
